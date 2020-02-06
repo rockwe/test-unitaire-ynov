@@ -1,6 +1,7 @@
 import express from 'express';
 // import morgan from 'morgan';
 import bodyParser from 'body-parser';
+require('dotenv').config()
 
 import book from './src/routes/books';
 // import config from 'config';
