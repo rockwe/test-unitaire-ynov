@@ -21,7 +21,7 @@ describe('route /book call /GET', function() {
         chai.request('http://localhost:8080')
             .get('/book')
             .end(function(err, res) {
-                expect(res.body).to.have.property('books');
+                expect(res.body).to.have.property('book');
                 done();
             });
     });
