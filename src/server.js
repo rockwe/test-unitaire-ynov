@@ -1,12 +1,13 @@
 import express from 'express';
 // import morgan from 'morgan';
 import bodyParser from 'body-parser';
-
+const http = require('http');
+const app = require('./app');
 import book from './routes/books';
 // import config from 'config';
 
 let port = 8080;
-let app = express();
+//let app = express();
 
 //don't show the log when it is test
 // if (config.util.getEnv('NODE_ENV') !== 'test') {
@@ -33,7 +34,11 @@ app
   .delete(book.deleteBook)
   .put(book.updateBook);
 
-app.listen(port);
-console.log('Listening on port ' + port);
+const server = http.createServer(app);
+
+server.listen(PORT, () => {
+    console.log('Server up and running on port ' + PORT);
+});
+
 
 module.exports = app; // for testing
